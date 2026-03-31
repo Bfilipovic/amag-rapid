@@ -251,6 +251,34 @@ main.main--landing {
   padding: 0;
 }
 
+main.main--subpage {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main__constrain {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  width: 100%;
+}
+
+.home-hero--subpage {
+  min-height: clamp(13rem, 34vh, 24rem);
+}
+
+.home-hero__content .page-hero--in-split {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .home-hero--subpage .home-hero__visual {
+    min-height: 28vh;
+  }
+}
+
 .page-hero {
   margin-bottom: 2.5rem;
 }
