@@ -454,6 +454,13 @@ html.about-page {
   overflow: hidden;
 }
 
+/* Na užim ekranima (telefon) pomeri kadar ulevo za ove fotke */
+@media (max-width: 768px) {
+  .timeline-panel--bg-left-phone {
+    background-position: left center;
+  }
+}
+
 .timeline-panel::before {
   content: "";
   position: absolute;
