@@ -537,7 +537,7 @@ html.about-page {
       rgba(246, 246, 246, 0.45) 70%,
       rgba(112, 112, 104, 0.15) 100%
     ),
-    url("https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1920&q=80");
+    url("../images/landing_background.jpeg");
   background-size: cover;
   background-position: 70% center;
 }
@@ -551,7 +551,7 @@ html.about-page {
         rgba(246, 246, 246, 0.55) 55%,
         rgba(246, 246, 246, 0.12) 85%
       ),
-      url("https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1920&q=80");
+      url("../images/landing_background.jpeg");
     background-position: center 40%;
     min-height: calc(max(100dvh, 32rem) - var(--header-h));
   }
