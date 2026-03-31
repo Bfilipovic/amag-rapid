@@ -1,9 +1,11 @@
 /* Amag-Rapid — main stylesheet */
 
 :root {
+  /* True white only for high-contrast type (timeline, buttons on accent) */
   --color-white: #ffffff;
-  --color-bg: #ffffff;
-  --color-surface: #f7f7f6;
+  /* Warm stone base — less stark than white, fits #707068 / #91918f */
+  --color-bg: #e2e2dc;
+  --color-surface: #ecece7;
   --color-text: #707068;
   --color-text-muted: #91918f;
   --color-accent: #707068;
@@ -13,8 +15,8 @@
   --header-h: 4rem;
   --max-w: 72rem;
   --radius: 0.5rem;
-  --shadow: 0 4px 20px rgba(112, 112, 104, 0.12);
-  --border-subtle: rgba(112, 112, 104, 0.18);
+  --shadow: 0 4px 20px rgba(112, 112, 104, 0.14);
+  --border-subtle: rgba(112, 112, 104, 0.22);
 }
 
 *,
@@ -89,8 +91,8 @@ img {
   gap: 1rem;
   min-height: var(--header-h);
   padding: 0.5rem 1.25rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-text) 3%);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -131,7 +133,7 @@ img {
   padding: 0;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  background: var(--color-white);
+  background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
 }
@@ -180,9 +182,9 @@ img {
     left: 0;
     right: 0;
     padding: 1rem 1.25rem 1.25rem;
-    background: var(--color-white);
+    background: var(--color-surface);
     border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 12px 24px rgba(112, 112, 104, 0.08);
+    box-shadow: 0 12px 24px rgba(112, 112, 104, 0.1);
     visibility: hidden;
     opacity: 0;
     transform: translateY(-0.5rem);
