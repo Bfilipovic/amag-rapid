@@ -1,13 +1,13 @@
 /* Amag-Rapid — main stylesheet */
 
 :root {
-  /* True white only for high-contrast type (timeline, buttons on accent) */
+  /* Palette: #707068, #91918f, black — mostly white, neutral (no tinted “dirty” base) */
   --color-white: #ffffff;
-  /* Warm stone base — less stark than white, fits #707068 / #91918f */
-  --color-bg: #e2e2dc;
-  --color-surface: #ecece7;
+  --color-bg: #f6f6f6;
+  --color-surface: #ffffff;
   --color-text: #707068;
   --color-text-muted: #91918f;
+  --color-black: #0a0a0a;
   --color-accent: #707068;
   --color-accent-hover: #5a5a52;
   --color-on-accent: #ffffff;
@@ -15,8 +15,8 @@
   --header-h: 4rem;
   --max-w: 72rem;
   --radius: 0.5rem;
-  --shadow: 0 4px 20px rgba(112, 112, 104, 0.14);
-  --border-subtle: rgba(112, 112, 104, 0.22);
+  --shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  --border-subtle: rgba(0, 0, 0, 0.09);
 }
 
 *,
@@ -91,7 +91,7 @@ img {
   gap: 1rem;
   min-height: var(--header-h);
   padding: 0.5rem 1.25rem;
-  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-text) 3%);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -133,8 +133,8 @@ img {
   padding: 0;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  background: var(--color-surface);
-  color: var(--color-text);
+  background: var(--color-white);
+  color: var(--color-black);
   cursor: pointer;
 }
 
@@ -166,9 +166,12 @@ img {
   text-decoration: none;
 }
 
-.site-nav a:hover,
+.site-nav a:hover {
+  color: var(--color-text);
+}
+
 .site-nav a[aria-current="page"] {
-  color: var(--color-accent);
+  color: var(--color-black);
 }
 
 @media (max-width: 640px) {
@@ -182,9 +185,9 @@ img {
     left: 0;
     right: 0;
     padding: 1rem 1.25rem 1.25rem;
-    background: var(--color-surface);
+    background: var(--color-white);
     border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 12px 24px rgba(112, 112, 104, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
     visibility: hidden;
     opacity: 0;
     transform: translateY(-0.5rem);
@@ -221,6 +224,7 @@ main {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
+  color: var(--color-black);
 }
 
 .page-hero .lead {
@@ -238,6 +242,7 @@ main {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   font-size: 1.35rem;
+  color: var(--color-black);
 }
 
 .prose p {
@@ -263,7 +268,7 @@ html.about-page {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: calc(var(--header-h) + 1rem) 1.25rem 2rem;
-  background-color: #5a5a52;
+  background-color: #707068;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -273,12 +278,12 @@ html.about-page {
   content: "";
   position: absolute;
   inset: 0;
-  /* Tinted overlay (brand gray + white) for readable type */
+  /* Black + brand gray for readable white type on photos */
   background: radial-gradient(
     ellipse 85% 75% at 50% 45%,
-    rgba(112, 112, 104, 0.6) 0%,
-    rgba(76, 76, 70, 0.78) 65%,
-    rgba(58, 58, 54, 0.88) 100%
+    rgba(112, 112, 104, 0.45) 0%,
+    rgba(10, 10, 10, 0.65) 55%,
+    rgba(10, 10, 10, 0.82) 100%
   );
   pointer-events: none;
 }
@@ -370,6 +375,7 @@ html.about-page {
 .about-intro h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: var(--color-black);
 }
 
 .about-intro .lead {
@@ -397,7 +403,7 @@ html.about-page {
 .service-card h2 {
   margin: 0 0 0.5rem;
   font-size: 1.15rem;
-  color: var(--color-text);
+  color: var(--color-black);
 }
 
 .service-card p {
@@ -430,6 +436,7 @@ html.about-page {
 .contact-block h2 {
   margin: 0 0 1rem;
   font-size: 1.15rem;
+  color: var(--color-black);
 }
 
 .contact-list {
@@ -444,7 +451,7 @@ html.about-page {
 }
 
 .contact-list strong {
-  color: var(--color-text);
+  color: var(--color-black);
 }
 
 .contact-list a {
@@ -523,6 +530,7 @@ html.about-page {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  color: var(--color-black);
 }
 
 .home-hero .tagline {
@@ -540,12 +548,12 @@ html.about-page {
 
 .btn-outline {
   background: transparent;
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
 }
 
 .btn-outline:hover {
-  background: var(--color-accent);
+  background: var(--color-black);
   color: var(--color-on-accent);
 }
 
