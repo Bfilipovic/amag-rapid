@@ -13,6 +13,7 @@
   --color-on-accent: #ffffff;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
   --header-h: 5.5rem;
+  --footer-h: 2.75rem;
   --max-w: 72rem;
   --radius: 0.5rem;
   --shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
@@ -252,6 +253,10 @@ main.main--landing {
 }
 
 main.main--subpage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
   max-width: none;
   margin: 0;
   padding: 0;
@@ -265,17 +270,133 @@ main.main--subpage {
   width: 100%;
 }
 
+/* Usluge / Kontakt: one viewport band, content in left white column */
 .home-hero--subpage {
-  min-height: clamp(13rem, 34vh, 24rem);
+  flex: 1 1 auto;
+  min-height: 0;
+  height: calc(100dvh - var(--header-h) - var(--footer-h));
+  max-height: calc(100dvh - var(--header-h) - var(--footer-h));
+}
+
+.home-hero__content--dense {
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0.85rem clamp(0.85rem, 2.5vw, 1.35rem) 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .home-hero__content .page-hero--in-split {
   margin-bottom: 0;
 }
 
+.page-hero--compact .lead {
+  max-width: none;
+}
+
+.home-hero__content--dense .page-hero--compact h1 {
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  margin: 0 0 0.2rem;
+}
+
+.home-hero__content--dense .page-hero--compact .lead {
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.service-grid--split {
+  margin-top: 0.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 0.55rem;
+  align-content: start;
+}
+
+.home-hero__content--dense .service-card {
+  padding: 0.45rem 0.55rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.home-hero__content--dense .service-card h2 {
+  font-size: 0.72rem;
+  margin: 0 0 0.15rem;
+  line-height: 1.2;
+}
+
+.home-hero__content--dense .service-card p {
+  font-size: 0.65rem;
+  line-height: 1.3;
+}
+
+.contact-layout--split {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.home-hero__content--dense .contact-block {
+  padding: 0.5rem 0.6rem;
+}
+
+.home-hero__content--dense .contact-block h2 {
+  font-size: 0.78rem;
+  margin: 0 0 0.35rem;
+}
+
+.contact-list--compact li {
+  margin-bottom: 0.28rem;
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.contact-list--compact li:last-child {
+  margin-bottom: 0;
+}
+
+.map-embed--compact {
+  min-height: 0;
+  margin-top: 0.2rem;
+}
+
+.map-embed--compact iframe {
+  height: 7.5rem;
+  min-height: 6.5rem;
+}
+
+.map-external-link--compact {
+  margin: 0.35rem 0 0;
+  font-size: 0.68rem;
+}
+
 @media (max-width: 768px) {
+  .home-hero--subpage {
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    flex: none;
+  }
+
+  main.main--subpage {
+    flex: none;
+    min-height: auto;
+  }
+
+  .home-hero__content--dense {
+    overflow-y: visible;
+  }
+
   .home-hero--subpage .home-hero__visual {
-    min-height: 28vh;
+    min-height: 32vh;
+  }
+
+  .service-grid--split {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero__content--dense .service-card p {
+    font-size: 0.75rem;
   }
 }
 
