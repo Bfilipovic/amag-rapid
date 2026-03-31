@@ -1,17 +1,20 @@
 /* Amag-Rapid — main stylesheet */
 
 :root {
-  --color-bg: #0f1114;
-  --color-surface: #171a1f;
-  --color-text: #e8eaed;
-  --color-text-muted: #9aa0a6;
-  --color-accent: #e85d04;
-  --color-accent-hover: #f48c06;
+  --color-white: #ffffff;
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f6;
+  --color-text: #707068;
+  --color-text-muted: #91918f;
+  --color-accent: #707068;
+  --color-accent-hover: #5a5a52;
+  --color-on-accent: #ffffff;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
   --header-h: 4rem;
   --max-w: 72rem;
   --radius: 0.5rem;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow: 0 4px 20px rgba(112, 112, 104, 0.12);
+  --border-subtle: rgba(112, 112, 104, 0.18);
 }
 
 *,
@@ -22,7 +25,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   scroll-padding-top: var(--header-h);
 }
 
@@ -85,27 +88,38 @@ img {
   justify-content: space-between;
   gap: 1rem;
   min-height: var(--header-h);
-  padding: 0.75rem 1.25rem;
-  background: rgba(15, 17, 20, 0.92);
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .site-logo {
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
+  color: inherit;
 }
 
 .site-logo:hover {
-  color: var(--color-accent);
   text-decoration: none;
+  opacity: 0.85;
 }
 
-.site-logo span {
-  color: var(--color-accent);
+.site-logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 0.25rem;
+}
+
+.site-logo__img {
+  display: block;
+  height: 2.75rem;
+  width: auto;
+  max-width: min(12rem, 42vw);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav-toggle {
@@ -115,9 +129,9 @@ img {
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  background: var(--color-surface);
+  background: var(--color-white);
   color: var(--color-text);
   cursor: pointer;
 }
@@ -166,8 +180,9 @@ img {
     left: 0;
     right: 0;
     padding: 1rem 1.25rem 1.25rem;
-    background: rgba(15, 17, 20, 0.98);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 12px 24px rgba(112, 112, 104, 0.08);
     visibility: hidden;
     opacity: 0;
     transform: translateY(-0.5rem);
@@ -246,7 +261,7 @@ html.about-page {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: calc(var(--header-h) + 1rem) 1.25rem 2rem;
-  background-color: #1a1d23;
+  background-color: #5a5a52;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -256,12 +271,12 @@ html.about-page {
   content: "";
   position: absolute;
   inset: 0;
-  /* Even overlay so centered text stays readable */
+  /* Tinted overlay (brand gray + white) for readable type */
   background: radial-gradient(
     ellipse 85% 75% at 50% 45%,
-    rgba(15, 17, 20, 0.55) 0%,
-    rgba(15, 17, 20, 0.82) 65%,
-    rgba(15, 17, 20, 0.92) 100%
+    rgba(112, 112, 104, 0.6) 0%,
+    rgba(76, 76, 70, 0.78) 65%,
+    rgba(58, 58, 54, 0.88) 100%
   );
   pointer-events: none;
 }
@@ -281,7 +296,7 @@ html.about-page {
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* Scroll-driven fade-in only where supported; base state stays visible (fixes file:// and older browsers). */
@@ -332,7 +347,7 @@ html.about-page {
   margin: 0;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.65;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -372,7 +387,7 @@ html.about-page {
 .service-card {
   padding: 1.5rem;
   background: var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
@@ -406,7 +421,7 @@ html.about-page {
 .contact-block {
   padding: 1.5rem;
   background: var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
 }
 
@@ -424,6 +439,10 @@ html.about-page {
 .contact-list li {
   margin-bottom: 0.75rem;
   color: var(--color-text-muted);
+}
+
+.contact-list strong {
+  color: var(--color-text);
 }
 
 .contact-list a {
@@ -448,7 +467,7 @@ html.about-page {
   padding: 0.65rem 1.25rem;
   font: inherit;
   font-weight: 700;
-  color: var(--color-bg);
+  color: var(--color-on-accent);
   background: var(--color-accent);
   border: none;
   border-radius: var(--radius);
@@ -457,7 +476,7 @@ html.about-page {
 
 .btn:hover {
   background: var(--color-accent-hover);
-  color: var(--color-bg);
+  color: var(--color-on-accent);
 }
 
 .btn:focus-visible {
@@ -525,7 +544,7 @@ html.about-page {
 
 .btn-outline:hover {
   background: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-on-accent);
 }
 
 .site-footer {
@@ -534,7 +553,7 @@ html.about-page {
   text-align: center;
   font-size: 0.875rem;
   color: var(--color-text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .site-footer p {
