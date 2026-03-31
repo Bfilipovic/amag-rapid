@@ -281,8 +281,8 @@ main.main--subpage {
 .home-hero__content--dense {
   justify-content: flex-start;
   align-items: stretch;
-  gap: 0.32rem;
-  padding: 0.75rem clamp(0.85rem, 2.5vw, 1.35rem) 0.9rem;
+  gap: 0.1rem;
+  padding: 0.55rem clamp(0.85rem, 2.5vw, 1.35rem) 0.65rem;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -296,59 +296,53 @@ main.main--subpage {
 }
 
 .home-hero__content--dense .page-hero--compact h1 {
-  font-size: clamp(1.28rem, 2.5vw, 1.72rem);
-  margin: 0 0 0.12rem;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin: 0 0 0.04rem;
 }
 
 .home-hero__content--dense .page-hero--compact .lead {
-  font-size: 0.9rem;
-  line-height: 1.38;
+  font-size: 1.05rem;
+  line-height: 1.34;
 }
 
 .service-grid--split {
-  margin-top: 0.12rem;
+  margin-top: 0.04rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.32rem 0.4rem;
+  gap: 0.16rem 0.22rem;
   align-content: start;
 }
 
 .home-hero__content--dense .service-card {
-  padding: 0.55rem 0.68rem;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  padding: 0.85rem 1rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .home-hero__content--dense .service-card h2 {
-  font-size: 0.82rem;
-  margin: 0 0 0.12rem;
+  font-size: 1.02rem;
+  margin: 0 0 0.06rem;
   line-height: 1.22;
 }
 
 .home-hero__content--dense .service-card p {
-  font-size: 0.75rem;
-  line-height: 1.34;
-}
-
-.contact-layout--split {
-  display: flex;
-  flex-direction: column;
-  gap: 0.32rem;
-  margin-top: 0.2rem;
-  width: 100%;
+  font-size: 0.92rem;
+  line-height: 1.32;
 }
 
 .home-hero__content--dense .contact-block {
-  padding: 0.6rem 0.72rem;
+  padding: 0.9rem 1.05rem;
 }
 
 .home-hero__content--dense .contact-block h2 {
-  font-size: 0.88rem;
-  margin: 0 0 0.26rem;
+  font-size: 1.08rem;
+  margin: 0 0 0.12rem;
 }
 
 .contact-list--compact li {
-  margin-bottom: 0.2rem;
-  font-size: 0.76rem;
-  line-height: 1.38;
+  margin-bottom: 0.1rem;
+  font-size: 0.92rem;
+  line-height: 1.34;
 }
 
 .contact-list--compact li:last-child {
@@ -357,17 +351,17 @@ main.main--subpage {
 
 .map-embed--compact {
   min-height: 0;
-  margin-top: 0.12rem;
+  margin-top: 0.04rem;
 }
 
 .map-embed--compact iframe {
-  height: 8.25rem;
-  min-height: 7rem;
+  height: 9.5rem;
+  min-height: 8rem;
 }
 
 .map-external-link--compact {
-  margin: 0.22rem 0 0;
-  font-size: 0.76rem;
+  margin: 0.1rem 0 0;
+  font-size: 0.92rem;
 }
 
 @media (max-width: 768px) {
@@ -396,7 +390,7 @@ main.main--subpage {
   }
 
   .home-hero__content--dense .service-card p {
-    font-size: 0.82rem;
+    font-size: 0.96rem;
   }
 }
 
@@ -609,6 +603,28 @@ html.about-page {
   .contact-layout {
     grid-template-columns: 1fr 1fr;
     align-items: start;
+  }
+}
+
+/* Override two-column .contact-layout on Kontakt split hero: single column, full-width cards */
+.contact-layout.contact-layout--split {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.1rem;
+  margin-top: 0.06rem;
+  width: 100%;
+}
+
+.contact-layout.contact-layout--split > .contact-block {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  .contact-layout.contact-layout--split .map-embed--compact iframe {
+    height: 14.5rem;
+    min-height: 13rem;
   }
 }
 
