@@ -12,7 +12,7 @@
   --color-accent-hover: #5a5a52;
   --color-on-accent: #ffffff;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
-  --header-h: 4.75rem;
+  --header-h: 5.5rem;
   --max-w: 72rem;
   --radius: 0.5rem;
   --shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
@@ -129,11 +129,18 @@ img {
 
 .site-logo__img {
   display: block;
-  height: 3.75rem;
+  height: 4.5rem;
   width: auto;
-  max-width: min(15rem, 55vw);
+  max-width: min(22rem, 88vw);
   object-fit: contain;
   object-position: center;
+}
+
+@media (max-width: 420px) {
+  .site-logo__img {
+    height: 3.5rem;
+    max-width: min(17rem, 78vw);
+  }
 }
 
 .nav-toggle {
