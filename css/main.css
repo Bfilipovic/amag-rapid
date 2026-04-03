@@ -461,6 +461,29 @@ html.about-page {
   }
 }
 
+/* Jedna sekcija, dve diplome kao pozadina (podela ekrana / složeno na mobilnom) */
+.timeline-panel.timeline-panel--diplomas-bg {
+  background-color: #4a4845;
+  background-image:
+    url("../images/history/diplomas_1.jpeg"),
+    url("../images/history/diplomas_2.jpeg");
+  background-size: 50% 100%, 50% 100%;
+  background-position: left center, right center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+@media (max-width: 768px) {
+  .timeline-panel.timeline-panel--diplomas-bg {
+    background-size: 100% 50%, 100% 50%;
+    background-position: center top, center bottom;
+  }
+}
+
+.timeline-year--range {
+  font-size: clamp(2rem, 9vw, 4.5rem);
+  letter-spacing: -0.03em;
+}
+
 .timeline-panel::before {
   content: "";
   position: absolute;
